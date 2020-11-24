@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    #    url: jdbc:postgresql://192.168.0.71:5432/alm_dev
+    #    username: alm
+    #    password: alm123456
+    #    driver-class-name: org.postgresql.Driver
+    url: jdbc:mysql://localhost:3306/spring-boot?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      #      maximum-pool-size: 300
+      connectionTimeout: 60000
+      leakDetectionThreshold: 120000
+      maximum-pool-size: 15
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/master.xml
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    #database: postgresql
+#    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    #database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: true
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
