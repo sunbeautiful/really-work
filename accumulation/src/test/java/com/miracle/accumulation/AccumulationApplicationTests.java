@@ -1,10 +1,10 @@
-package com.miracle.common;
+package com.miracle.accumulation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CommonApplicationTests {
+class AccumulationApplicationTests {
 
   @Test
   void contextLoads() {

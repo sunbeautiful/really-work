@@ -15,6 +15,7 @@
   <modules>
     <module>excuse</module>
     <module>common</module>
+    <module>accumulation</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -22,7 +23,7 @@
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-<!--    <servicecomb.version>2.1.1</servicecomb.version>-->
+    <!--    <servicecomb.version>2.1.1</servicecomb.version>-->
   </properties>
 
   <dependencies>
@@ -48,6 +49,10 @@
       <groupId>org.liquibase</groupId>
     </dependency>
 
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>mysql</groupId>
@@ -59,5 +64,26 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
+
+    <dependency>
+      <artifactId>common</artifactId>
+      <groupId>com.miracle</groupId>
+      <version>1.0</version>
+    </dependency>
   </dependencies>
+  <!--  dependencyManagement里只是声明依赖，并不实现引入，因此子项目需要显示的声明需要用的依赖。如果不在子项目中声明依赖，-->
+  <!--  是不会从父项目中继承下来的；只有在子项目中写了该依赖项，并且没有指定具体版本，才会从父项目中继承该项，-->
+  <!--  并且version和scope都读取自父pom;另外如果子项目中指定了版本号，那么会使用子项目中指定的jar版本。-->
+  <!--  <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-dependencies</artifactId>
+          <version>${spring-boot.version}</version>
+          <type>pom</type>
+          <scope>import</scope>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>-->
+
 </project>
